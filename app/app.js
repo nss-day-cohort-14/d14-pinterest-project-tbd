@@ -12,4 +12,7 @@ app.config(function ($routeProvider, FBcreds) {
   
   firebase.initializeApp(authConfig);
 
+
+  //routing
+
 });
