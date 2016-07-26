@@ -11,7 +11,7 @@
   <div class="row">
     <div class="col s4 card" ng-repeat="board in boardArray | filter: filterText">
       <div class="card-content">
-        <a><h3>{{board.title}}</h3></a>
+        <a ng-click="setSelectedBoard(board)"><h3>{{board.title}}</h3></a>
         <p>{{board.description}}</p>
         <div class="tagList" ng-repeat="tag in board.tags">
             <span>{{tag}}</span>
