@@ -13,5 +13,27 @@ app.config(function ($routeProvider, FBCreds) {
 
 
   //routing
+  $routeProvider
+    .when('/login', {
+      templateUrl: 'partials/login.html',
+      controller: 'loginCtrl'
+    })
+    .when('/boards', {
+      templateUrl: 'partials/boardView.html',
+      controller: 'boardView'
+    })
+    .when('/boards/new', {
+      templateUrl: 'partials/newBoard.html',
+      controller: 'newBoardCtrl'
+    })
+    .when('/boards/pins', {
+      templateUrl: 'partials/pinView.html',
+      controller: 'pinView'
+    })
+    .when('/boards/pins/new', {
+      templateUrl: 'partials/newPin.html',
+      controller: 'newPinCtrl'
+    })
+    .otherwise('/login');
 
 });
