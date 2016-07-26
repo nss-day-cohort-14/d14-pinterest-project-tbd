@@ -20,6 +20,5 @@ app.controller('boardView', function($scope, dataFactory) {
       console.log("", boardCollection);
       $scope.boardArray = boardCollection;
     });
-  dataFactory.getData();
 
 });
