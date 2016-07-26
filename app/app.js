@@ -3,11 +3,11 @@
 const app = angular.module("pinApp", ['ngRoute'])
 .constant('FirebaseURL', "https://tbd-pintrest.firebaseio.com");
 
-app.config(function ($routeProvider, FBcreds) {
+app.config(function ($routeProvider, FBCreds) {
 
   let authConfig = {
-    apiKey: FBcreds.apiKey,
-    authDomain: FBcreds.authDomain
+    apiKey: FBCreds.apiKey,
+    authDomain: FBCreds.authDomain
   };
   
   firebase.initializeApp(authConfig);

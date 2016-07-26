@@ -9,9 +9,11 @@
     <link type="text/css" rel="stylesheet" href="lib/node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="/css/main.css" media="screen" charset="utf-8">
   </head>
-  <body>
+  <body ng-app="pinApp">
     <h1>hello</h1>
-
+    <div ng-controller="boardView">
+        
+    </div>
 
      <script src="lib/node_modules/angular/angular.min.js"></script>
      <script src="lib/node_modules/angular-route/angular-route.min.js"></script>
@@ -24,10 +26,10 @@
      <!-- credentials -->
      <script type="text/javascript" src="/app/values/firebaseAuth.js"></script>
      <!-- Factories -->
-     <!-- <script type="text/javascript" src="/app/factories/*.js"></script> -->
+     <script type="text/javascript" src="/app/factories/dataFactory.js"></script>
      <!-- directives -->
      <!-- <script type="text/javascript" src="/app/directives/*.js"></script> -->
      <!-- Controllers -->
-     <!-- <script type="text/javascript" src="/app/controllers/*.js"></script> -->
+     <script type="text/javascript" src="/app/controllers/boardViewCtrl.js"></script>
   </body>
 </html>

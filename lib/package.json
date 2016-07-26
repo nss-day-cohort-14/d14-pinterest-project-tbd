@@ -1,7 +1,6 @@
 {
   "name": "lib",
   "version": "1.0.0",
-  "description": "",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,5 +23,6 @@
     "firebase": "^3.2.0",
     "jquery": "^2.2.4",
     "materialize-css": "^0.97.7"
-  }
+  },
+  "description": ""
 }
