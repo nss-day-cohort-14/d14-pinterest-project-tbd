@@ -3,10 +3,10 @@ app.controller('newPinCtrl', function ($scope) {
 
 	var board = false;
 
-	$scope.newBoard = {
-		boardKey: "",
+	$scope.newPin = {
+		boardKey: null,
 		comments: "",
-		refKey: "",
+		refKey: null,
 		tags: [],
 		title: "",
 		url: ""

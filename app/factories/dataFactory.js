@@ -17,7 +17,19 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 		return $q((resolve, reject) => {
 			$http.get(`${FirebaseURL}/${queryString}`)
 			.success((dataObject) => {
-				data = keyAssigner(dataObject, data);
+					data = keyAssigner(dataObject, data);
+
+					data.forEach((value, i) => (
+						putDataEdits(value, board)
+					));
+
+					// data.forEach( (value, i) => {
+					// 		if(value.refKey === null){
+					// 			value.refKey = 
+					// 			putDataEdits( value ,board)
+					// 		}
+					// 	}	
+					// );
 				// console.log("this is my data", data );
 				resolve(data);
 			})
@@ -102,7 +114,7 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 
 		return dataArray;
 	}
-	
+
 	return {getData, postData, putDataEdits, deleteData}
 
 });
