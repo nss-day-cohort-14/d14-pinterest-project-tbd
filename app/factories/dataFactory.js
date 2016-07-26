@@ -2,8 +2,7 @@
 
 app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 
-	//var for boardsArray
-	//var for pinsArray
+	var currentBoard = "";
 
 	//function for GET to work with Boards and Pins
 	const getData = function(board) {
@@ -17,8 +16,11 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 		return $q((resolve, reject) => {
 			$http.get(`${FirebaseURL}/${queryString}`)
 			.success((dataObject) => {
-				data = keyAssigner(dataObject, data);
-				// console.log("this is my data", data );
+					data = keyAssigner(dataObject, data); //this assigns keys locally to the objects
+					//the following forEach puts locally assigned keys on firebase
+					data.forEach((value, i) => (
+						putDataEdits(value, board)
+					));
 				resolve(data);
 			})
 			.error((error) => {
@@ -34,6 +36,7 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 			queryString = `boards.json`;
 		} else {
 			queryString = `pins.json`;
+
 		}
 		return $q((resolve, reject) => {
 			$http.post(
@@ -102,7 +105,7 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 
 		return dataArray;
 	}
-	
+
 	return {getData, postData, putDataEdits, deleteData}
 
 });

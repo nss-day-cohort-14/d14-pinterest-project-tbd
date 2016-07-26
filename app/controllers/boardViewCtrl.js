@@ -10,11 +10,15 @@ app.controller('boardView', function($scope, dataFactory) {
     console.log("clicked delete");
   };
 
+  $scope.setSelectedBoard = function(clickedBoard){
+    dataFactory.currentBoard = clickedBoard.refKey;
+    console.log("dataFactory.currentBoard", dataFactory.currentBoard);
+  }
+
   dataFactory.getData(board)
     .then((boardCollection) => {
       console.log("", boardCollection);
       $scope.boardArray = boardCollection;
     });
-  dataFactory.getData();
 
 });
