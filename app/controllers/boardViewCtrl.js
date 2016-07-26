@@ -2,7 +2,7 @@
 
 app.controller('boardView', function ($scope, dataFactory) {
 
-	var board = true;
+	var board = true; //this tell the getData() that it is looking for boards
 	//board object array
 	//delete board
 
