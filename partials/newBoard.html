@@ -1,19 +1,26 @@
 <div class="container">
-	<div class="row">
-		<div col s8 offest-s2>
+	<div class="row center-align" >
+		<div class="col s8 offset-s2">
 			<h3>Add a new board</h3>
-			<div class="input-field col s12">
-				<input id="title" type="text" name="title" placeholder="Your Title Here..." ng-model="newBoard.title">
-				<label for="title">Board Title</label>
+			<div class="row">
+				<div class="input-field col s12">
+					<!-- <label for="title">Board Title</label> -->
+					<input id="title" type="text" name="title" placeholder="Your Title Here..." ng-model="newBoard.title">
+				</div>
 			</div>
-			<div class="input-field col s6 offset-s3">
-				<input id="description" type="textarea" name="description" placeholder="Your Description Here..." ng-model="newBoard.description">
-				<label for="description">Board Description</label>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<!-- <label for="description">Board Description</label> -->
+					<textarea id="description" cols="30" rows="10" name="description" placeholder="Your Description Here..." ng-model="newBoard.description"></textarea>
+				</div>
 			</div>
-			<div class="input-field col s6 offset-s3">
-				<input id="tags" type="text" name="tags" placeholder="Your Tags Here (comma separated)" ng-model="newBoard.tags">
-				<label for="tags">Board Tags</label>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<!-- <label for="tags">Board Tags</label> -->
+					<input id="tags" type="text" name="tags" placeholder="Your Tags Here (comma separated)" ng-model="newBoard.tags">
+				</div>
 			</div>
+			<a class="waves-effect waves-light btn" ng-click="addData()">Add Board</a>
 		</div>
 	</div>
 </div>

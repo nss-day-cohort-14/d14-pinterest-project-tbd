@@ -5,16 +5,16 @@ app.controller('newBoardCtrl', function ($scope, $location, dataFactory, authFac
 
 	$scope.newBoard = {
 		description: "",
-		refKey: "",
+		refKey: null,
 		tags: "",
 		title: "",
-		uid: ""
+		uid: null
 	};
 
 	$scope.addData = function() {
 		$scope.newBoard.uid = authFactory.getUser();
 		$scope.newBoard.tags = cleanTags($scope.newBoard.tags);
-		dataFactory.postData($scope.newBoard)
+		dataFactory.postData($scope.newBoard, board)
 		.then ((response) => {
 			$location.url("/boards");
 		});

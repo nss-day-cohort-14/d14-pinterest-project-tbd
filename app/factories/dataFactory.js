@@ -28,6 +28,7 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 	};
 	//function for POST to work with Boards and Pins
 	const postData = function(newObject, board) {
+		console.log("postData Called");
 		let queryString = null;
 		if(board){ //only the board object has the uid
 			queryString = `boards.json`;
