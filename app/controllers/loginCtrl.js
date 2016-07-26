@@ -2,6 +2,12 @@
 
 app.controller('loginCtrl', function ($scope, authFactory) {
   
+	$scope.openModal = function () {
+    $('#modal1').openModal();
+  };
+
+  $scope.openModal();
+  
   $scope.login = function(){
 
   	console.log("Login initialized");
