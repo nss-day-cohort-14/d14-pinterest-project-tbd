@@ -14,8 +14,10 @@
     <div ng-controller="boardView">
 
     </div>
-    <div ng-view>
+    <div ng-controller="loginCtrl">
+      <div ng-include="partials/login.html">
 
+      </div>
     </div>
 
      <script src="lib/node_modules/angular/angular.min.js"></script>
