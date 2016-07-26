@@ -1,22 +1,22 @@
 'use strict';
 
-app.factory('authFactory', function() {
+app.factory('authFactory', function($location) {
 
   let currentUserId = null;
   let googleProvider = new firebase.auth.GoogleAuthProvider();
 
-  //onAuthStateChanged function to keep current UserId set correctly. 
+  //onAuthStateChanged function to keep current UserId set correctly.
   //in the if set UID var to UID
   //in the else set UID var to null
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       console.log("user logged in");
       currentUserId = user.uid;
-      // $location.url("/start");
+      $location.url("/boards");
     } else {
       console.log("user not logged in");
       currentUserId = null;
-      // $location.url("/login");
+      $location.url("/login");
     }
   });
 
@@ -35,8 +35,27 @@ app.factory('authFactory', function() {
     return currentUserId;
   };
 
+  let createWithEmail = function (email, password) {
+    return firebase.auth().createUserWithEmailAndPassword(email, password)
+    .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    });
+  };
+
+  let authWithEmail = function (email, password) {
+    return firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    });
+  };
+
   return {
-    authWithProvider, isAuthenticated, getUser, googleProvider
+    authWithProvider, isAuthenticated, getUser, googleProvider, createWithEmail, authWithEmail
   };
 
 });
