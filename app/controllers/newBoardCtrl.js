@@ -21,7 +21,7 @@ app.controller('newBoardCtrl', function ($scope, $location, dataFactory, authFac
 	};
 
 	function cleanTags(tagString){
-		tagString = tagString.replace(/ /, "");
+		tagString = tagString.replace(/\s/g, "");
 		let tagArray = tagString.split(/,/);
 		return tagArray;
 	}

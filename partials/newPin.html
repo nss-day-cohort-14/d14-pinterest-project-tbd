@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row center-align" >
+		<div class="col s8 offset-s2">
+			<h3>Add a new Pin</h3>
+			<div class="row">
+				<div class="input-field col s12">
+					<!-- <label for="title">Board Title</label> -->
+					<input id="title" type="text" name="title" placeholder="Your Title Here..." ng-model="newPin.title">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<!-- <label for="comments">Board comments</label> -->
+					<textarea id="comments" cols="30" rows="10" name="comments" placeholder="Your Comments Here..." ng-model="newPin.comments"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<!-- <label for="comments">Board comments</label> -->
+					<input type="text" name="url" placeholder="Your Image URL..." ng-model="newPin.url">
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6 offset-s3">
+					<!-- <label for="tags">Board Tags</label> -->
+					<input id="tags" type="text" name="tags" placeholder="Your Tags Here (comma separated)" ng-model="newPin.tags">
+				</div>
+			</div>
+			<a class="waves-effect waves-light btn" ng-click="addData()">Add Pin</a>
+		</div>
+	</div>
+</div>
