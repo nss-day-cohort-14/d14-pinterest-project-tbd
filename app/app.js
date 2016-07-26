@@ -9,7 +9,7 @@ app.config(function ($routeProvider, FBCreds) {
     apiKey: FBCreds.apiKey,
     authDomain: FBCreds.authDomain
   };
-  
+
   firebase.initializeApp(authConfig);
 
 
