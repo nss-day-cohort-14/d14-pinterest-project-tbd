@@ -8,8 +8,8 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col s4 card" ng-repeat="board in boardArray | filter: filterText">
+  <div class="row cardFlex">
+    <div class="col s3 card cardHeightSet" ng-repeat="board in boardArray | filter: filterText">
       <div class="card-content">
         <a><h3>{{board.title}}</h3></a>
         <p>{{board.description}}</p>
@@ -20,5 +20,5 @@
       </div>
   </div>
   
-  <a class="btn-floating btn-large waves-effect waves-light red" ng-href="#/boards/new"><i class="material-icons">add</i></a>
+  <a class="btn-floating btn-large waves-effect waves-light red addBoardBtn" ng-href="#/boards/new"><i class="material-icons">add</i></a>
 </div>
