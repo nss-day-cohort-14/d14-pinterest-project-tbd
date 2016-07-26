@@ -18,7 +18,7 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 			$http.get(`${FirebaseURL}/${queryString}`)
 			.success((dataObject) => {
 				data = keyAssigner(dataObject, data);
-				console.log("this is my data", data );
+				// console.log("this is my data", data );
 				resolve(data);
 			})
 			.error((error) => {
@@ -27,11 +27,68 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 		});
 	};
 	//function for POST to work with Boards and Pins
+	const postData = function(newObject, board) {
+		let queryString = null;
+		if(board){ //only the board object has the uid
+			queryString = `boards.json`;
+		} else {
+			queryString = `pins.json`;
+		}
+		return $q((resolve, reject) => {
+			$http.post(
+				`${FirebaseURL}/${queryString}`,
+				JSON.stringify(newObject)
+				)
+			.success((objectFromFirebase) => {
+				resolve(objectFromFirebase);
+			})
+			.error((error) => {
+				reject(error);
+			});
+		});
+	};
 	//function for PUT to work with Boards and Pins
+	const putDataEdits = function(objectToEdit, board) {
+		let queryString = null;
+		if(board){ //only the board object has the uid
+			queryString = `boards`;
+		} else {
+			queryString = `pins`;
+		}
+		return $q((resolve, reject) => {
+			$http.put(`${FirebaseURL}/${queryString}/${objectToEdit.refKey}.json`,
+			 objectToEdit
+			 )
+			.success((data) => {
+				// console.log("Data from delete", data );
+				resolve(data);
+			})
+			.error((error) => {
+				reject(error);
+			});
+		});
+	};
 	//function for DELETE to work with Boards and Pins
-		////Try to implement an if statement with hadOwnProperty to check for UID since
-		////the UID will only be on the Board. So we can see whether we are passing a pin
-		////or board that way.
+	const deleteData = function(objectToDelete, board) {
+		let queryString = null;
+		if(board){ //only the board object has the uid
+			queryString = `boards`;
+		} else {
+			queryString = `pins`;
+		}
+		return $q((resolve, reject) => {
+			$http.delete(
+				`${FirebaseURL}/${queryString}/${objectToDelete.refKey}.json`
+			)
+			.success((data) => {
+				// console.log("Data from delete", data );
+				resolve(data);
+			})
+			.error((error) => {
+				reject(error);
+			});
+		});
+	};	
 
 	//key to prop assigning helper function
 	function keyAssigner(object, dataArray){
@@ -45,6 +102,6 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 		return dataArray;
 	}
 	
-	return {getData}
+	return {getData, postData, putDataEdits, deleteData}
 
 });
