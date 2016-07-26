@@ -1,5 +1,5 @@
 'use strict';
-const app = angular.module("pinApp", ['ngRoute', 'angularMaterialize'])
+const app = angular.module("pinApp", ['ngRoute'])
 .constant('FirebaseURL', "https://tbd-pintrest.firebaseio.com");
 
 app.config(function ($routeProvider, FBCreds) {
