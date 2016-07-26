@@ -8,17 +8,16 @@ app.factory('authFactory', function() {
   //onAuthStateChanged function to keep current UserId set correctly.
   //in the if set UID var to UID
   //in the else set UID var to null
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      console.log("user logged in");
-      currentUserId = user.uid;
-      // $location.url("/start");
-    } else {
-      console.log("user not logged in");
-      currentUserId = null;
-      // $location.url("/login");
-    }
-  });
+  // firebase.auth().onAuthStateChanged(function(user) {
+  //   if (user) {
+  //     console.log("user logged in");
+  //     currentUserId = user.uid;
+  //   } else {
+  //     console.log("user not logged in");
+  //     currentUserId = null;
+  //     // $location.url("/login");
+  //   }
+  // });
 
   //Auth function that takes in a generic provided (so it works with email or google eventually)
   let authWithProvider = function(provider) {
@@ -33,6 +32,10 @@ app.factory('authFactory', function() {
   //getUser function returns current userId
   let getUser = function() {
     return currentUserId;
+  };
+
+  let setUser = function(id) {
+    currentUserId = id;
   };
 
   let createWithEmail = function (email, password) {
@@ -55,7 +58,25 @@ app.factory('authFactory', function() {
   };
 
   return {
-    authWithProvider, isAuthenticated, getUser, googleProvider, createWithEmail, authWithEmail
+    authWithProvider, isAuthenticated, getUser, setUser, googleProvider, createWithEmail, authWithEmail
   };
 
 });
+
+app.run(["$location", "FBCreds", "authFactory", function ($location, FBCreds, authFactory) {
+  let authConfig = {
+    apiKey: FBCreds.apiKey,
+    authDomain: FBCreds.authDomain
+  };
+
+  firebase.initializeApp(authConfig);
+
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      authFactory.setUser(user.uid);
+      $location.url("/boards");
+    } else {
+      $location.url("/login");
+    }
+  });
+}]);

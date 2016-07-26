@@ -2,14 +2,7 @@
 const app = angular.module("pinApp", ['ngRoute'])
 .constant('FirebaseURL', "https://tbd-pintrest.firebaseio.com");
 
-app.config(function ($routeProvider, FBCreds) {
-
-  let authConfig = {
-    apiKey: FBCreds.apiKey,
-    authDomain: FBCreds.authDomain
-  };
-
-  firebase.initializeApp(authConfig);
+app.config(function ($routeProvider) {
 
 
   //routing
@@ -34,9 +27,6 @@ app.config(function ($routeProvider, FBCreds) {
       templateUrl: 'partials/newPin.html',
       controller: 'newPinCtrl'
     })
-    .otherwise('/login', {
-      templateUrl: 'partials/login.html',
-      controller: 'loginCtrl'
-    });
+    .otherwise('/boards');
 
 });
