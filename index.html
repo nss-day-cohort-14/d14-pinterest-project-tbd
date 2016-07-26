@@ -12,7 +12,41 @@
   <body ng-app="pinApp">
     <h1>hello</h1>
     <div ng-controller="boardView">
-        
+
+    </div>
+    <div ng-controller="loginCtrl">
+        <!-- Modal Trigger -->
+         <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+
+         <!-- Modal Structure -->
+         <div id="modal1" class="modal">
+           <div class="row modal-content">
+             <form class="col s12">
+               <div class="row">
+                 <div class="input-field col s6">
+                   <i class="material-icons prefix">email</i>
+                   <input id="icon_prefix" type="text" class="validate">
+                   <label for="icon_prefix">Email</label>
+                 </div>
+                 <div class="input-field col s6">
+                   <i class="material-icons prefix">vpn_key</i>
+                   <input id="icon_telephone" type="password" class="validate">
+                   <label for="icon_telephone">Password</label>
+                 </div>
+               </div>
+               <div class="row">
+                 <h4 class="center-align">--OR--</h4>
+                 <div class="col s6 offset-s4">
+                   <a href="#!"><img src="https://online.cameyo.com/Images/SignInGoogle.png" id="googleImg"/></a>
+                 </div>
+               </div>
+             </form>
+           </div>
+           <div class="modal-footer">
+             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Login</a>
+             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sign Up</a>
+           </div>
+         </div>
     </div>
 
      <script src="lib/node_modules/angular/angular.min.js"></script>
@@ -31,5 +65,6 @@
      <!-- <script type="text/javascript" src="/app/directives/*.js"></script> -->
      <!-- Controllers -->
      <script type="text/javascript" src="/app/controllers/boardViewCtrl.js"></script>
+     <script type="text/javascript" src="/app/controllers/loginCtrl.js"></script>
   </body>
 </html>
