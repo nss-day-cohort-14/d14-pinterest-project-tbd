@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('authFactory', function($location) {
+app.factory('authFactory', function() {
 
   let currentUserId = null;
   let googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -12,11 +12,11 @@ app.factory('authFactory', function($location) {
     if (user) {
       console.log("user logged in");
       currentUserId = user.uid;
-      $location.url("/boards");
+      // $location.url("/start");
     } else {
       console.log("user not logged in");
       currentUserId = null;
-      $location.url("/login");
+      // $location.url("/login");
     }
   });
 
