@@ -34,6 +34,9 @@ app.config(function ($routeProvider, FBCreds) {
       templateUrl: 'partials/newPin.html',
       controller: 'newPinCtrl'
     })
-    .otherwise('/login');
+    .otherwise('/login', {
+      templateUrl: 'partials/login.html',
+      controller: 'loginCtrl'
+    });
 
 });
