@@ -7,8 +7,7 @@ app.controller('boardView', function ($scope, dataFactory) {
 	//delete board
 
 	dataFactory.getData(board)
-	.then( (data) => {
-		console.log("Then there was me");
+	.then((data) => {
 	}
 	);
 
