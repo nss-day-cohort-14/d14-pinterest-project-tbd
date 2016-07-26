@@ -1,11 +1,10 @@
 'use strict';
 
 app.controller('loginCtrl', function ($scope, authFactory) {
-  
+
 	$scope.openModal = function () {
     $('#modal1').openModal();
   };
-
   $scope.openModal();
 
   $scope.login = function(){
@@ -32,6 +31,4 @@ app.controller('loginCtrl', function ($scope, authFactory) {
 		  console.log(error);
 		});
   }
-
-  $scope.openModal();
 });
