@@ -45,6 +45,7 @@ app.factory('authFactory', function() {
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
+    console.warn(errorCode, errorMessage);
     });
   };
 
@@ -54,6 +55,7 @@ app.factory('authFactory', function() {
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
+    console.warn(errorCode, errorMessage);
     });
   };
 
