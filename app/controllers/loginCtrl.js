@@ -51,5 +51,5 @@ app.controller('loginCtrl', function ($scope, authFactory) {
 		  // An error happened.
 		  console.log(error);
 		});
-  }
+  };
 });
