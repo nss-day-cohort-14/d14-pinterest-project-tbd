@@ -25,5 +25,4 @@ app.controller('navCtrl', function ($scope, authFactory, $route, $location) {
 	 $scope.login = function () {
 		//  $location.url("/login");
 	 };
-
 });

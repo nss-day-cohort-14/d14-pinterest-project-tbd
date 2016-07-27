@@ -12,7 +12,7 @@ app.controller('newBoardCtrl', function ($scope, $location, dataFactory, authFac
 	};
 
 	$scope.addData = function() {
-		$scope.newBoard.uid = authFactory.getUser();
+		$scope.newBoard.uid = authFactory.getUser(); //set uid on boards, but not pins
 		$scope.newBoard.tags = cleanTags($scope.newBoard.tags);
 		dataFactory.postData($scope.newBoard, board)
 		.then ((response) => {
@@ -25,5 +25,7 @@ app.controller('newBoardCtrl', function ($scope, $location, dataFactory, authFac
 		let tagArray = tagString.split(/,/);
 		return tagArray;
 	}
+
+	
 
 });

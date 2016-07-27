@@ -9,8 +9,9 @@
   </div>
 
   <div class="row cardFlex">
-    <div class="col s3 card cardHeightSet" ng-repeat="pin in pinArray | filter: filterText">
+    <div class="col s3 card cardHeightSet center-align" ng-repeat="pin in selectedBoardPins | filter: filterText">
       <div class="card-content">
+      <img class="imagePreview" src="{{pin.url}}" alt="Probably a Cat">
         <a><h3>{{pin.title}}</h3></a>
         <p>{{pin.description}}</p>
         <div class="tagList" ng-repeat="tag in pin.tags">

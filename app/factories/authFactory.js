@@ -36,6 +36,7 @@ app.factory('authFactory', function() {
 
   let setUser = function(id) {
     currentUserId = id;
+    // console.log(currentUserId, "currentUserId")
   };
 
   let createWithEmail = function (email, password) {
@@ -79,6 +80,7 @@ app.run(["$location", "FBCreds", "authFactory", function ($location, FBCreds, au
       $location.url("/boards");
     } else {
       $location.url("/login");
+      authFactory.setUser(null); //this is to rest the current user to hide board.
     }
   });
 }]);
