@@ -7,8 +7,8 @@ app.controller('pinView', function($scope, dataFactory, $route, $routeParams) {
   //delete pin card
 
 
-  $scope.deletePin = function(pinToDelete) {
-    dataFactory.deleteData(pinToDelete, board)
+  $scope.deletePin = function(refKey) {
+    dataFactory.deleteData(refKey, board)
       .then(function(data) {
         $route.reload();
       });
@@ -21,6 +21,7 @@ app.controller('pinView', function($scope, dataFactory, $route, $routeParams) {
       $scope.selectedBoardPins = $scope.pinArray.filter((pin) => {
         return pin.boardKey === $routeParams.boardId;
       }); //I took out an index 0 call here
+      console.log("", $scope.selectedBoardPins);
     });
 
 });
