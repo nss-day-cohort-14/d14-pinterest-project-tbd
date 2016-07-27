@@ -3,7 +3,7 @@
 app.factory('dataFactory', function($q, $http, FirebaseURL) {
 
   var currentBoard = "";
-  var selectedBoardArray = [];
+  var currentPin = "";
 
   //function for GET to work with Boards and Pins
   const getData = function(board) {
@@ -37,7 +37,6 @@ app.factory('dataFactory', function($q, $http, FirebaseURL) {
       queryString = `boards.json`;
     } else {
       queryString = `pins.json`;
-
     }
     return $q((resolve, reject) => {
       $http.post(
@@ -75,7 +74,6 @@ app.factory('dataFactory', function($q, $http, FirebaseURL) {
   };
   //function for DELETE to work with Boards and Pins
   const deleteData = function(refKey, board) {
-    console.log("", refKey, board);
     let queryString = null;
     if (board) { //only the board object has the uid
       queryString = `boards`;

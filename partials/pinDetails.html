@@ -1,0 +1,29 @@
+<div id="modal2" class="modal">
+  <div class="row modal-content">
+    <div class="col s12">
+      <div class="row">
+        <div class="col s6 offset-s3 center-align">
+          <p>{{selectedPin.title}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6 offset-s3 center-align">
+          <img id="detailsImg" src="{{selectedPin.url}}" alt="probably a cat"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6 offset-s3 center-align">
+          <p>{{selectedPin.comments}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s2 offset-s1 center-align" ng-repeat="tag in selectedPin.tags">
+          <p id="detailTags">{{tag}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
