@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('navCtrl', function ($scope, authFactory, $route, $location, $window) {
+app.controller('navCtrl', function ($scope, authFactory, $window) {
 
 		//scoped boolean to see if logged in or logged out and determine which
 		////log state button we need to show
@@ -21,7 +21,7 @@ app.controller('navCtrl', function ($scope, authFactory, $route, $location, $win
 		 });
 	 };
 
-	 $scope.login = function () {
-		//  $location.url("/login");
-	 };
+	//  $scope.login = function () {
+	// 	//  $location.url("/login");
+	//  };
 });
