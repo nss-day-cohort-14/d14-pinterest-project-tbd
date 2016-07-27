@@ -1,32 +1,27 @@
 <div id="modal2" class="modal">
   <div class="row modal-content">
-    <form class="col s12">
+    <div class="col s12">
       <div class="row">
-        <div class="col s6 offset-s3">
-          <p>Title Here</p>
+        <div class="col s6 offset-s3 center-align">
+          <p>{{selectedPin.title}}</p>
         </div>
       </div>
       <div class="row">
-        <div class="col s6 offset-s3">
-          <img src="IMG HERE" />
+        <div class="col s6 offset-s3 center-align">
+          <img src="{{selectedPin.url}}" alt="probably a cat"/>
         </div>
       </div>
       <div class="row">
-        <div class="col s6 offset-s3">
-          <p>Info Here</p>
+        <div class="col s6 offset-s3 center-align">
+          <p>{{selectedPin.comments}}</p>
         </div>
       </div>
       <div class="row">
-        <div class="col s6 offset-s3">
-          <p>Info Here</p>
+        <div class="col s6 offset-s3 center-align" ng-repeat="tag in selectedPin.tags">
+          <p id="detailTags">{{tag}}</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col s6 offset-s3">
-          <p>Info Here</p>
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
   <div class="modal-footer">
     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>

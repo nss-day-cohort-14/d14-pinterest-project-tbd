@@ -3,6 +3,7 @@
 app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 
 	var currentBoard = "";
+	var currentPin = "";
 
 	//function for GET to work with Boards and Pins
 	const getData = function(board) {
@@ -92,7 +93,7 @@ app.factory('dataFactory', function ($q, $http, FirebaseURL) {
 				reject(error);
 			});
 		});
-	};	
+	};
 
 	//key to prop assigning helper function
 	function keyAssigner(object, dataArray){

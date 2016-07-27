@@ -27,6 +27,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'partials/newPin.html',
       controller: 'newPinCtrl'
     })
+    .when('/boards/:boardId/:pinId', {
+      templateUrl: 'partials/pinDetails.html',
+      controller: 'detailsCtrl'
+    })
     .otherwise('/boards');
 
 });
