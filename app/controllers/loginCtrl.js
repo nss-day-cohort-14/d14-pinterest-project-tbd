@@ -2,8 +2,8 @@
 
 app.controller('loginCtrl', function ($scope, authFactory) {
 
-	$scope.openModal = function () { //login model
-    $('#modal1').openModal();
+	$scope.openModal = function () {
+    $('#modal1').openModal({dismissible:false});
   };
   $scope.openModal();
 
@@ -50,5 +50,5 @@ app.controller('loginCtrl', function ($scope, authFactory) {
 		  // An error happened.
 		  console.log(error);
 		});
-  }
+  };
 });
