@@ -37,16 +37,4 @@ app.controller('loginCtrl', function ($scope, $route, authFactory) {
       console.log(err);
     })
   };
-
-  $scope.logout = function(){
-  	firebase.auth().signOut()
-  	.then(function() {
-		  // Sign-out successful.
-		  authFactory.currentUserID = null;
-		  console.log(authFactory.getUser(), "Logged out");
-		}, function(error) {
-		  // An error happened.
-		  console.log(error);
-		});
-  };
 });
