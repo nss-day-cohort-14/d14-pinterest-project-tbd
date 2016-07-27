@@ -19,7 +19,7 @@ app.config(function ($routeProvider) {
       templateUrl: 'partials/newBoard.html',
       controller: 'newBoardCtrl'
     })
-    .when('/boards/pins', {
+    .when('/boards/:boardId', {
       templateUrl: 'partials/pinView.html',
       controller: 'pinView'
     })

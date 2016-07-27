@@ -19,7 +19,7 @@ app.controller('newPinCtrl', function ($scope, $location, dataFactory) {
 		dataFactory.postData($scope.newPin, board)
 		.then ((response) => {
 			console.log("pin board key", response);
-			$location.url("/pins");
+			$location.url(`/boards/${$scope.newPin.boardKey}`);
 		});
 	};
 
