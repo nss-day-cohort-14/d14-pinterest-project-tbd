@@ -3,7 +3,7 @@
 app.controller('loginCtrl', function ($scope, authFactory) {
 
 	$scope.openModal = function () {
-    $('#modal1').openModal();
+    $('#modal1').openModal({dismissible:false});
   };
   $scope.openModal();
 
