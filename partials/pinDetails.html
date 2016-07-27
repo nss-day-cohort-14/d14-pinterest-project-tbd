@@ -8,7 +8,7 @@
       </div>
       <div class="row">
         <div class="col s6 offset-s3 center-align">
-          <img src="{{selectedPin.url}}" alt="probably a cat"/>
+          <img id="detailsImg" src="{{selectedPin.url}}" alt="probably a cat"/>
         </div>
       </div>
       <div class="row">
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col s6 offset-s3 center-align" ng-repeat="tag in selectedPin.tags">
+        <div class="col s2 offset-s1 center-align" ng-repeat="tag in selectedPin.tags">
           <p id="detailTags">{{tag}}</p>
         </div>
       </div>
