@@ -8,8 +8,9 @@
     </div>
   </div>
 
-  <div class="row cardFlex">
-    <div class="col s3 card cardHeightSet" ng-repeat="board in boardArray | filter: filterText">
+  <div class="row cardFlex" ng-if="userToShow">
+  <!-- Filter: userToShow prevent people from seeing boards that arent theirs -->
+    <div class="col s3 card cardHeightSet" ng-repeat="board in boardArray | filter: filterText | filter: userToShow">
       <div class="card-content">
         <a ng-click="setSelectedBoard(board)" href="#/boards/{{board.refKey}}"><h3>{{board.title}}</h3></a>
         <p>{{board.description}}</p>
