@@ -12,7 +12,7 @@
     <div class="col s3 card cardHeightSet center-align" ng-repeat="pin in selectedBoardPins | filter: filterText">
       <div class="card-content">
       <img class="imagePreview" src="{{pin.url}}" alt="Probably a Cat">
-        <a><h3>{{pin.title}}</h3></a>
+        <a ng-click="setSelectedPin(pin)" href="#/boards/{{pin.boardKey}}/{{pin.refKey}}"><h3>{{pin.title}}</h3></a>
         <p>{{pin.description}}</p>
         <div class="tagList" ng-repeat="tag in pin.tags">
             <span>{{tag}}</span>
@@ -20,6 +20,6 @@
         <a class="btn-floating btn-small waves-effect waves-light red" ng-click="deletePin(pin)"><i class="material-icons">delete</i></a>
       </div>
   </div>
-  
+
   <a class="btn-floating btn-large waves-effect waves-light red addPinBtn" ng-href="#/boards/pins/new"><i class="material-icons">add</i></a>
 </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('loginCtrl', function ($scope, authFactory) {
+app.controller('loginCtrl', function ($scope, $route, authFactory) {
 
 	$scope.openModal = function () {
     $('#modal1').openModal({dismissible:false});
@@ -8,9 +8,7 @@ app.controller('loginCtrl', function ($scope, authFactory) {
   $scope.openModal();
 
   $scope.login = function(){
-
   	console.log("Login initialized");
-
     authFactory.authWithProvider(authFactory.googleProvider)
     .then(function(result) {
       var user = result.user.uid;
@@ -38,17 +36,5 @@ app.controller('loginCtrl', function ($scope, authFactory) {
     .catch(function(err) {
       console.log(err);
     })
-  };
-
-  $scope.logout = function(){
-  	firebase.auth().signOut()
-  	.then(function() {
-		  // Sign-out successful.
-		  authFactory.currentUserID = null;
-		  console.log(authFactory.getUser(), "Logged out");
-		}, function(error) {
-		  // An error happened.
-		  console.log(error);
-		});
   };
 });
