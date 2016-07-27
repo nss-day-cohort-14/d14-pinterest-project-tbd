@@ -1,0 +1,33 @@
+<div id="modal2" class="modal">
+  <div class="row modal-content">
+    <form class="col s12">
+      <div class="row">
+        <div class="col s6 offset-s4">
+          <a href="#!" ng-click="login()" class="modal-close"><img src="https://online.cameyo.com/Images/SignInGoogle.png" id="googleImg"/></a>
+        </div>
+        <div class="col s6 offset-s3">
+          <h4 id="loginDivider" class="center-align">~or~</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">email</i>
+          <input id="icon_prefix" type="email" name="email" required title="Must contain valid email address" class="validate" ng-model="email">
+          <label for="icon_prefix">Email</label>
+          <p id="emailReq">*Required: Valid email address</p>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">vpn_key</i>
+          <!-- <input id="icon_telephone" type="password" class="validate" ng-model="password"> -->
+          <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
+          <input type="password" name="password" required  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" class="validate" ng-model="password">
+          <label for="icon_telephone">Password</label>
+          <p id="passwordReq">*Required: At least (1) number, (1) uppercase, (1) lowercase, and 8 characters long</p>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
