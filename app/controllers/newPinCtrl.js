@@ -14,12 +14,11 @@ app.controller('newPinCtrl', function ($scope, $location, dataFactory) {
 
 	$scope.addData = function() {
 		console.log("adding pin" );
-		$scope.newPin.boardKey = dataFactory.currentBoard;
-		$scope.newPin.tags = cleanTags($scope.newPin.tags);
+		$scope.newPin.boardKey = dataFactory.currentBoard; //add the board key property
+		$scope.newPin.tags = cleanTags($scope.newPin.tags); //add the tags as an array
 		dataFactory.postData($scope.newPin, board)
 		.then ((response) => {
-			console.log("pin board key", response);
-			$location.url(`/boards/${$scope.newPin.boardKey}`);
+			$location.url(`/boards/${$scope.newPin.boardKey}`); //redirect to the board's pins
 		});
 	};
 

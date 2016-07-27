@@ -11,6 +11,7 @@
   <div class="row cardFlex">
     <div class="col s3 card cardHeightSet" ng-repeat="pin in selectedBoardPins | filter: filterText">
       <div class="card-content">
+      <img src="{{pin.url}}" alt="Probably a Cat">
         <a><h3>{{pin.title}}</h3></a>
         <p>{{pin.description}}</p>
         <div class="tagList" ng-repeat="tag in pin.tags">
