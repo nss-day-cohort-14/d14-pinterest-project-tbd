@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('navCtrl', function ($scope, authFactory, $route, $location) {
+app.controller('navCtrl', function ($scope, authFactory, $route, $location, $window) {
 
 		//scoped boolean to see if logged in or logged out and determine which
 		////log state button we need to show
@@ -12,8 +12,7 @@ app.controller('navCtrl', function ($scope, authFactory, $route, $location) {
 		 firebase.auth().signOut()
 		 .then(function() {
 			 // Sign-out successful.
-			 $route.reload();
-			//  $location.url("/login");
+			 $window.location.reload();
 			 console.log(authFactory.getUser(), "Logged out");
 			 authFactory.setUser(null);
 		 }, function(error) {
