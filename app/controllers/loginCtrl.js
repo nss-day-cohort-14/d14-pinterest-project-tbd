@@ -34,7 +34,7 @@ app.controller('loginCtrl', function ($scope, authFactory) {
   $scope.existingEmail = function () {
     authFactory.authWithEmail($scope.email, $scope.password)
     .then(function(result) {
-      console.log(result.uid);
+      console.log('hello', result.uid);
     })
     .catch(function(err) {
       console.log(err);
